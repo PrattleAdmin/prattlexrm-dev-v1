@@ -14,15 +14,15 @@ ENV OSTICKET_VERSION=v1.15.4 \
     PHP_ENABLE_SESSION=TRUE \
     PHP_ENABLE_CREATE_SAMPLE_PHP=FALSE \
     PHP_ENALBLE_ZIP=TRUE \
-    NGINX_WEBROOT=/www/osticket \
+    APACHE_WEBROOT=/www/html/prattlexrm \
     ZABBIX_AGENT_TYPE=classic \
-    CONTAINER_NAME=osticket-app
+    CONTAINER_NAME=prattlexrm-xrm
 
 ### Dependency Installation
 RUN set -x && \
-    apt-get update && \
-    apt-get upgrade -y && \
-    apt-get install -y \
+    yum update && \
+    yum upgrade -y && \
+    yum install -y \
                   git \
                   libldap-common \
                   openssl \
@@ -32,11 +32,11 @@ RUN set -x && \
                   zlib1g \
                   && \
     \
-### Download & Prepare OSTicket for Install
-    git clone  https://github.com/osTicket/osTicket /usr/src/osticket && \
-    git -C /usr/src/osticket checkout ${OSTICKET_VERSION} && \
+### Download & Prepare PrattleXRM for Install
+    git clone  https://github.com/PrattleAdmin/prattlexrm-dev-v1.git /usr/src/prattlexrm && \
+    git -C /usr/src/prattlexrm checkout ${OSTICKET_VERSION} && \
     mkdir -p /assets/install && \
-    mv /usr/src/osticket/* /assets/install && \
+    mv /usr/src/prattlexrm/* /assets/install && \
     chown -R nginx:www-data /assets/install && \
     chmod -R a+rX /assets/install/ && \
     chmod -R u+rw /assets/install/ && \
@@ -44,46 +44,12 @@ RUN set -x && \
     chown -R root:root /assets/install/setup_hidden && \
     chmod 700 /assets/install/setup_hidden && \
     \
-# Setup Official Plugins
-    git clone -b develop https://github.com/osTicket/osTicket-plugins /usr/src/plugins && \
-    cd /usr/src/plugins && \
-    php make.php hydrate && \
-    for plugin in $(find * -maxdepth 0 -type d ! -path doc ! -path lib); do cp -r ${plugin} /assets/install/include/plugins; done; \
-    cp -R /usr/src/plugins/*.phar /assets/install/include/plugins/ && \
-    cd / && \
-    \
-# Add Community Plugins
-    ## Archiver
-    git clone https://github.com/clonemeagain/osticket-plugin-archiver /assets/install/include/plugins/archiver && \
-    ## Attachment Preview
-    git clone https://github.com/clonemeagain/attachment_preview /assets/install/include/plugins/attachment-preview && \
-    ## Auto Closer
-    git clone https://github.com/clonemeagain/plugin-autocloser /assets/install/include/plugins/auto-closer && \
-    ## Fetch Note
-    git clone https://github.com/bkonetzny/osticket-fetch-note /assets/install/include/plugins/fetch-note && \
-    ## Field Radio Buttons
-    git clone https://github.com/Micke1101/OSTicket-plugin-field-radiobuttons /assets/install/include/plugins/field-radiobuttons && \
-    ## Mentioner
-    git clone https://github.com/clonemeagain/osticket-plugin-mentioner /assets/install/include/plugins/mentioner && \
-    ## Multi LDAP Auth
-    git clone https://github.com/philbertphotos/osticket-multildap-auth /assets/install/include/plugins/multi-ldap && \
-    mv /assets/install/include/plugins/multi-ldap/multi-ldap/* /assets/install/include/plugins/multi-ldap/ && \
-    rm -rf /assets/install/include/plugins/multi-ldap/multi-ldap && \
-    ## Prevent Autoscroll
-    git clone https://github.com/clonemeagain/osticket-plugin-preventautoscroll /assets/install/include/plugins/prevent-autoscroll && \
-    ## Rewriter
-    git clone https://github.com/clonemeagain/plugin-fwd-rewriter /assets/install/include/plugins/rewriter && \
-    ## Slack
-    git clone https://github.com/clonemeagain/osticket-slack /assets/install/include/plugins/slack && \
-    ## Teams (Microsoft)
-    git clone https://github.com/ipavlovi/osTicket-Microsoft-Teams-plugin /assets/install/include/plugins/teams && \
-    \
 ### Log Miscellany Installation
     touch /var/log/msmtp.log && \
     chown nginx:www-data /var/log/msmtp.log && \
    \
 ## Cleanup
-    apt-get clean && \
+    yum clean && \
     rm -rf /var/lib/apt/lists/* && \
     rm -rf /tmp/* && \
     rm -rf /usr/src/* && \
