@@ -10,10 +10,10 @@ function default_config() {
 		"mobilemenubg"=>"#89c4c6", 
 		"mobilelinkcolor"=>"#22545c",
 		"stickybar"=>"#22545c",
-		"title"=>"PrattleXRM",
+		"title"=>"osTicket Awesome",
 		"subtitle"=>"Support Ticket Center",
-		"mobile-text"=>"PrattleXRM",
-		"mobile-link"=>"https://prattlexrm.prattle.online",
+		"mobile-text"=>"osTicket Awesome",
+		"mobile-link"=>"https://osticketawesome.com",
 		
 		"consent-message-option"=>"true",		
 		"consent-message"=>"This website relies on temporary cookies to function, but no personal data is ever stored in the cookies.",
