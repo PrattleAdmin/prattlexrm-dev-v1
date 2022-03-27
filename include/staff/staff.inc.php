@@ -3,7 +3,20 @@ if(!defined('OSTADMININC') || !$thisstaff || !$thisstaff->isAdmin()) die('Access
 
 $info = $qs = array();
 
+//check for number of agents
+
+
 if ($_REQUEST['a']=='add'){
+    $max = $cfg->getMaxAgents();
+    //get number of agents
+    $table = STAFF_TABLE;
+    $sql="SELECT * FROM ".$table . " WHERE isadmin=0";
+    $res=db_query($sql);
+    $totalAgents = db_num_rows($res);
+    if($max == $totalAgents) {
+        die('Maximum number of agents created reached.');
+        return;
+    }
     if (!$staff) {
         $staff = Staff::create(array(
             'isactive' => true,
@@ -198,8 +211,43 @@ if (count($bks) > 1) {
             <br/>
         </tr>
       </tbody>
+      <!-- ================================================ -->
+      <tbody>
+        <tr class="header">
+          <th colspan="2">
+            <?php echo __('Sip Settings'); ?><span class="error">*</span>
+          </th>
+        </tr>
+        <tr>
+            <td class="required"><?php echo __('Sip User'); ?>:</td>
+          <td>
+            <input type="email" size="40" maxlength="64" style="width: 300px" name="sip_user" class="auto sip_user"
+              value="<?php echo Format::htmlchars($staff->sip_user); ?>"
+              placeholder="<?php echo __('e.g. me@mycompany.com'); ?>" />
+            <div class="error"><?php echo $errors['sip_user']; ?></div>
+          </td>
+        </tr>
+        <tr>
+            <td class="required"><?php echo __('Sip Password'); ?>:</td>
+          <td>
+            <input type="password" size="40" maxlength="64" style="width: 300px" name="sip_password" class="auto sip_password"
+              value="<?php echo Format::htmlchars($staff->sip_password); ?>"
+              placeholder="<?php echo __('e.g. password'); ?>" />
+            <div class="error"><?php echo $errors['sip_password']; ?></div>
+          </td>
+        </tr>
+        <tr>
+            <td class="required"><?php echo __('Sip Server'); ?>:</td>
+          <td>
+            <input type="text" size="40" maxlength="64" style="width: 300px" name="sip_server" class="auto sip_server"
+              value="<?php echo Format::htmlchars($staff->sip_server); ?>"
+              placeholder="<?php echo __('e.g. wss://12.34.55.44'); ?>" />
+            <div class="error"><?php echo $errors['sip_server']; ?></div>
+          </td>
+        </tr>
+      </tbody>
     </table>
-
+    <br/>
     <div style="padding:8px 3px; margin-top: 1.6em">
         <strong class="big"><?php echo __('Internal Notes');?>: </strong>
         <?php echo __("Be liberal, they're internal");?>

@@ -60,9 +60,17 @@ if (osTicket::is_ie())
     }
     ?>
 	<?php include ROOT_DIR . '/osta/inc/staff-head.html'; ?>	
+	
 </head>
 <!--osta-->
 <body class="staff-side <?php $phpSelf = filter_input(INPUT_SERVER, 'PHP_SELF', FILTER_SANITIZE_URL); echo basename(substr($phpSelf, 0, strpos($phpSelf, '.php')));  ?>-page">
+<script>
+	    function popupwindow(url, title, w, h) {
+  var left = (screen.width/2)-(w/2);
+  var top = (screen.height/2)-(h/2);
+  return window.open(url, title, 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width='+w+', height='+h+', top='+top+', left='+left);
+} 
+	</script>
 <div id="container">
     <?php if($ost->getError()) echo sprintf('
     <div id="error_bar">%s</div>', $ost->getError()); elseif($ost->getWarning()) echo sprintf('
@@ -86,6 +94,8 @@ if (osTicket::is_ie())
             <a href="<?php echo ROOT_PATH ?>scp/index.php" class="no-pjax">
                 <?php echo __( 'Agent Panel'); ?>
             </a>
+            
+            <a href="javascript:void(0)" onclick="popupwindow('<?php echo 'https://prattle.jaapa.tech/sip/phone/index.html?user='.$thisstaff->getSipUser().'&pass='.$thisstaff->getSipPassword().'&server='.$thisstaff->getSipServer().'&display='.$thisstaff->getFirstName().'&realm='.$thisstaff->getSipServer() ?>', 'HI', 320, 500)">Virtual Phone</a>
             <?php } ?> 
             <a href="<?php echo ROOT_PATH ?>scp/profile.php">
                 <?php echo $thisstaff->getFirstName(); ?>

@@ -248,6 +248,7 @@ class OsticketConfig extends Config {
         'files_req_auth' => 1,
         'force_https' => '',
         'allow_external_images' => 0,
+        'max_agents' => -1,
     );
 
     function __construct($section=null) {
@@ -336,6 +337,20 @@ class OsticketConfig extends Config {
 
     function getDefaultTimezone() {
         return $this->get('default_timezone');
+    }
+    
+    function getMaxAgents() {
+        //get max agents
+        return $this->get('max_agents');
+        // $sql='SELECT * FROM '.$this->table.' WHERE `id` = 99';
+        // $sqll = "SELECT * FROM `ost_config` WHERE `key` = 'max_agents'";
+        // $res=db_query($sqll, false);
+        // echo db_result($res);
+        // if (($res=db_query($sqll, false)) && db_num_rows($res)){
+        //     echo "yhhh";
+        //     return db_result($res);
+        // }
+        // return json_encode($this->config); //[99]->value;
     }
 
     function getTimezone($user=false) {

@@ -132,6 +132,9 @@ implements AuthenticatedUser, EmailContact, TemplateVariable, Searchable {
         'signature' => __('Signature'),
         'timezone' => "Agent's configured timezone",
         'username' => 'Access username',
+        'sip_user' => __('Sip User'),
+        'sip_password' => __('Sip Password'),
+        'sip_server' => __('Sip Server'),
       );
     }
 
@@ -328,6 +331,18 @@ implements AuthenticatedUser, EmailContact, TemplateVariable, Searchable {
 
     function getEmail() {
         return $this->email;
+    }
+    
+    function getSipUser() {
+        return $this->sip_user;
+    }
+    
+    function getSipPassword() {
+        return $this->sip_password;
+    }
+    
+    function getSipServer() {
+        return $this->sip_server;
     }
 
     function getAvatar($size=null) {
@@ -820,6 +835,13 @@ implements AuthenticatedUser, EmailContact, TemplateVariable, Searchable {
 
         if(!$vars['lastname'])
             $errors['lastname']=__('Last name is required');
+        
+        if(!$vars['sip_user'])
+            $errors['sip_user']=__('Sip user is required');
+        if(!$vars['sip_password'])
+            $errors['sip_password']=__('Sip password is required');
+        if(!$vars['sip_server'])
+            $errors['sip_server']=__('Sip server is required');    
 
         if(!$vars['email'] || !Validator::is_valid_email($vars['email']))
             $errors['email']=__('Valid email is required');
@@ -867,6 +889,10 @@ implements AuthenticatedUser, EmailContact, TemplateVariable, Searchable {
         $this->default_paper_size = $vars['default_paper_size'];
         $this->lang = $vars['lang'];
         $this->onvacation = $vars['onvacation'];
+        
+        $this->sip_user = $vars['sip_user'];
+        $this->sip_password = $vars['sip_password'];
+        $this->sip_server = $vars['sip_server'];
 
         if (isset($vars['avatar_code']))
           $this->setExtraAttr('avatar', $vars['avatar_code']);
@@ -1220,6 +1246,13 @@ implements AuthenticatedUser, EmailContact, TemplateVariable, Searchable {
         if(!$vars['lastname'])
             $errors['lastname']=__('Last name required');
 
+        if(!$vars['sip_user'])
+            $errors['sip_user']=__('Sip user is required');
+        if(!$vars['sip_password'])
+            $errors['sip_password']=__('Sip password is required');
+        if(!$vars['sip_server'])
+            $errors['sip_server']=__('Sip server is required');
+        
         $error = '';
         if(!$vars['username'] || !Validator::is_username($vars['username'], $error))
             $errors['username']=($error) ? $error : __('Username is required');
@@ -1284,6 +1317,9 @@ implements AuthenticatedUser, EmailContact, TemplateVariable, Searchable {
         $this->firstname = $vars['firstname'];
         $this->lastname = $vars['lastname'];
         $this->email = $vars['email'];
+        $this->sip_user = $vars['sip_user'];
+        $this->sip_password = $vars['sip_password'];
+        $this->sip_server = $vars['sip_server'];
         $this->backend = $vars['backend'];
         $this->phone = Format::phone($vars['phone']);
         $this->phone_ext = $vars['phone_ext'];
