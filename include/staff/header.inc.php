@@ -3,7 +3,7 @@ header("Content-Type: text/html; charset=UTF-8");
 header("Content-Security-Policy: frame-ancestors ".$cfg->getAllowIframes().";");
 
 $title = ($ost && ($title=$ost->getPageTitle()))
-    ? $title : ('osTicket :: '.__('Staff Control Panel'));
+    ? $title : ('PrattleXRM :: '.__('Staff Control Panel'));
 
 if (!isset($_SERVER['HTTP_X_PJAX'])) { ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
@@ -18,7 +18,7 @@ if ($lang) {
 
 // Dropped IE Support Warning
 if (osTicket::is_ie())
-    $ost->setWarning(__('osTicket no longer supports Internet Explorer.'));
+    $ost->setWarning(__('PrattleXRM no longer supports Internet Explorer.'));
 ?>>
 <head>
     <!-- Powered by osTicket -->
@@ -132,7 +132,7 @@ if (osTicket::is_ie())
 			</div>		
 			
             <div id="header-image">
-				<img src="<?php echo get_logo( $custom, "staff" )?>?<?php echo strtotime($cfg->lastModified('staff_logo_id')); ?>" alt="osTicket &mdash; <?php echo __('Customer Support System'); ?>"/> 
+				<img src="<?php echo get_logo( $custom, "staff" )?>?<?php echo strtotime($cfg->lastModified('staff_logo_id')); ?>" alt="PrattleXRM &mdash; <?php echo __('Customer Support System'); ?>"/> 
             </div>	
 
             <div id="header-default">
@@ -216,7 +216,7 @@ if (osTicket::is_ie())
         if (strpos($h, '<script ') !== false)
             echo $h;
     } ?>
-    <title><?php echo ($ost && ($title=$ost->getPageTitle()))?$title:'osTicket :: '.__('Staff Control Panel'); ?></title><?php
+    <title><?php echo ($ost && ($title=$ost->getPageTitle()))?$title:'PrattleXRM :: '.__('Staff Control Panel'); ?></title><?php
 } # endif X_PJAX ?>
 <!--osta-->
    

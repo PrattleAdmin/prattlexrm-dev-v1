@@ -66,5 +66,6 @@ $ost->setWarning($sysnotice);
 $nav = new AdminNav($thisstaff);
 
 //Page title.
-$ost->setPageTitle(__('osTicket :: Admin Control Panel'));
+global $cfg;
+$ost->setPageTitle($cfg->getTitle()); //__('osTicket :: Admin Control Panel'));
 ?>
