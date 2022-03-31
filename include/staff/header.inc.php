@@ -95,7 +95,7 @@ if (osTicket::is_ie())
                 <?php echo __( 'Agent Panel'); ?>
             </a>
             
-            <a href="javascript:void(0)" onclick="popupwindow('<?php echo 'https://prattle.jaapa.tech/sip/phone/index.html?user='.$thisstaff->getSipUser().'&pass='.$thisstaff->getSipPassword().'&server='.$thisstaff->getSipServer().'&display='.$thisstaff->getFirstName().'&realm='.$thisstaff->getSipServer() ?>', 'HI', 320, 500)">Virtual Phone</a>
+            <a href="javascript:void(0)" onclick="popupwindow('<?php echo 'https://prattlexrm.prattle.online/sip/phone/index.html?user='.$thisstaff->getSipUser().'&pass='.$thisstaff->getSipPassword().'&server='.$thisstaff->getSipServer().'&display='.$thisstaff->getFirstName().'&realm='.$thisstaff->getSipServer() ?>', 'HI', 320, 500)">Virtual Phone</a>
             <?php } ?> 
             <a href="<?php echo ROOT_PATH ?>scp/profile.php">
                 <?php echo $thisstaff->getFirstName(); ?>

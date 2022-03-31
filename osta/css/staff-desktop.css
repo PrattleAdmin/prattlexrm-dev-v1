@@ -4637,10 +4637,10 @@ background-image: url("data:image/svg+xml;charset=utf-8, %3Csvg xmlns='http://ww
     color: var(--header-title-color);
     background: var(--nav-bar-bg);
     position: relative;
-    height: 60px;
+    /* height: 60px; */
 }
 div#footer + div {
-    background: var(--nav-bar-bg) !important;
+    /* background: var(--nav-bar-bg) !important; */
     height: 36px;
     margin: -40px 0;
 }
@@ -4648,7 +4648,7 @@ div#footer + div {
     width: 100%;
     background: var(--nav-bar-bg) !important;
     background: rgba(0, 0, 0, 0.05);
-    height: 60px;
+    /* height: 60px; */
     bottom: 0;
     padding: 0;	
     position: static;
