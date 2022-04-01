@@ -1,0 +1,22 @@
+[25-Mar-2022 10:42:22 UTC] PHP Fatal error:  Uncaught Error: Object of class Page could not be converted to string in /home/khariymz/prattle.jaapa.tech/xcrm/index.php:27
+Stack trace:
+#0 {main}
+  thrown in /home/khariymz/prattle.jaapa.tech/xcrm/index.php on line 27
+[25-Mar-2022 10:42:48 UTC] PHP Fatal error:  Uncaught Error: Object of class OsticketConfig could not be converted to string in /home/khariymz/prattle.jaapa.tech/xcrm/index.php:27
+Stack trace:
+#0 {main}
+  thrown in /home/khariymz/prattle.jaapa.tech/xcrm/index.php on line 27
+[25-Mar-2022 10:42:56 UTC] PHP Fatal error:  Uncaught Error: Object of class OsticketConfig could not be converted to string in /home/khariymz/prattle.jaapa.tech/xcrm/index.php:27
+Stack trace:
+#0 {main}
+  thrown in /home/khariymz/prattle.jaapa.tech/xcrm/index.php on line 27
+[25-Mar-2022 11:08:56 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method OsticketConfig::config() in /home/khariymz/prattle.jaapa.tech/xcrm/include/class.config.php:350
+Stack trace:
+#0 /home/khariymz/prattle.jaapa.tech/xcrm/index.php(27): OsticketConfig->getMaxAgents()
+#1 {main}
+  thrown in /home/khariymz/prattle.jaapa.tech/xcrm/include/class.config.php on line 350
+[25-Mar-2022 11:24:21 UTC] PHP Fatal error:  Uncaught Error: Object of class mysqli_result could not be converted to string in /home/khariymz/prattle.jaapa.tech/xcrm/include/class.config.php:347
+Stack trace:
+#0 /home/khariymz/prattle.jaapa.tech/xcrm/index.php(27): OsticketConfig->getMaxAgents()
+#1 {main}
+  thrown in /home/khariymz/prattle.jaapa.tech/xcrm/include/class.config.php on line 347
