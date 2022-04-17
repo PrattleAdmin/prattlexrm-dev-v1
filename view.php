@@ -48,5 +48,5 @@ $nav->setActiveNav('status');
 $inc = 'accesslink.inc.php';
 require CLIENTINC_DIR.'header.inc.php';
 require CLIENTINC_DIR.$inc;
-require CLIENTINC_DIR.'footer.inc.php';
+// require CLIENTINC_DIR.'footer.inc.php';
 ?>
