@@ -377,7 +377,7 @@ if ( isset( $_SESSION["errors"] ) ) {
 			<table id="default-logo" class="container" border="0" cellspacing="0" cellpadding="0">
 				<tr>
 					<td class="left"> 
-					  <div class="title"><?php echo __('osTicket Awesome Logo'); ?></div>
+					  <div class="title"><?php echo __('PrattleXRM Logo'); ?></div>
 					  <div class="image">
 						<?php				
 						$file_name = ROOT_DIR ."osta/inc/default-logo.html";
@@ -421,7 +421,7 @@ if ( isset( $_SESSION["errors"] ) ) {
 					<td class="left"> 
 					  <div class="title"><?php echo __('Custom Logo'); ?></div>
 					  <div class="image">
-				<img src="<?php echo get_logo( $opt, "staff" )?>?<?php echo strtotime($cfg->lastModified('staff_logo_id')); ?>" alt="osTicket &mdash; <?php echo __('Customer Support System'); ?>"/> 					  
+				<img src="<?php echo "../../osta/img/prattle-logo.png"; //echo get_logo( $opt, "staff" )?>?<?php echo strtotime($cfg->lastModified('staff_logo_id')); ?>" alt="PrattleXRM &mdash; <?php echo __('Customer Support System'); ?>"/> 					  
 					  </div>
 					</td>
 					<td class="right"> 
@@ -457,7 +457,7 @@ if ( isset( $_SESSION["errors"] ) ) {
 					<td class="left"> 
 					  <div class="title"><?php echo __('Custom Print Logo'); ?></div>
 					  <div class="print-logo">
-						<img src="<?php echo get_print_logo( $opt, true)?>?<?php echo strtotime($cfg->lastModified('staff_logo_id')); ?>" alt="osTicket &mdash; <?php echo __('Customer Support System'); ?>"/> 					  
+						<img src="<?php echo get_print_logo( $opt, true)?>?<?php echo strtotime($cfg->lastModified('staff_logo_id')); ?>" alt="PrattleXRM &mdash; <?php echo __('Customer Support System'); ?>"/> 					  
 						  </div>
 					</td>
 					<td class="right">
@@ -497,7 +497,7 @@ if ( isset( $_SESSION["errors"] ) ) {
 				  <tbody>
 					<tr>
 					  <td id="custom-logo-column-inner-title">
-						<h2><?php echo __('Use a Custom Logo'); ?>&nbsp;&nbsp;<span class="custom-logo-link"><a href="https://osticketawesome.com/logo"><?php echo __('More information'); ?></a></span></h2>		
+						<h2><?php echo __('Use a Custom Logo'); ?>&nbsp;&nbsp;<span class="custom-logo-link"><a href="https://prattlexrm.prattle.online/logo"><?php echo __('More information'); ?></a></span></h2>		
 						<br>
 					  </td>
 					</tr>
@@ -562,7 +562,7 @@ if ( isset( $_SESSION["errors"] ) ) {
 										echo 'checked="checked"'; ?>/>
 
 									<div class="logo-image-container">
-										<img src="../osta/img/ost-logo.png"
+										<img src="../../osta/img/prattle-logo.png"
 											 alt="Default Logo" valign="middle"
 											 style="box-shadow: 0 0 0.5em rgba(0,0,0,0.5);
 													margin: 0.5em; height: 5em;
@@ -1239,16 +1239,16 @@ if ( isset( $_SESSION["errors"] ) ) {
                             <tr>
                                 <td>
                                     <br />
-                                    <span class="code-green osticket">osTicket 
+                                    <span class="code-green osticket">PrattleXRM 
                                     <?php echo sprintf("%s", THIS_VERSION); ?></span>	
                                     <span class="forslash">//</span>		
                                     <span class="code-green awesome"><?php $themev = ROOT_DIR ."osta/version"; echo file_get_contents($themev); ?></span><br /><br />
 									
                                     <?php echo __('The current version'); ?>:
-									<span class="current-version"><?php $currentv = "https://osticketawesome.com/release/current-version.txt";
+									<span class="current-version"><?php $currentv = "https://prattlexrm.prattle.online/release/current-version.txt";
                                         echo file_get_contents($currentv); ?></span>
 										
-									<div id="version-msg"><a href='https://osticketawesome.com/downloads/'><?php echo __('Download'); ?> <?php $currentv = "https://osticketawesome.com/release/current-version";
+									<div id="version-msg"><a href='https://prattlexrm.prattle.online/downloads/'><?php echo __('Download'); ?> <?php $currentv = "https://prattlexrm.prattle.online/release/current-version";
                                         echo file_get_contents($currentv); ?></a></div>
                                 </td>
                             </tr>
@@ -1260,7 +1260,7 @@ if ( isset( $_SESSION["errors"] ) ) {
                     <table id="get-support" width="100%" border="0" cellspacing="0" cellpadding="0">
                         <tr>
                             <td>
-                                <button id="copy-clipboard-btn" class="btn" data-clipboard-text="osTicket <?php echo sprintf("%s", THIS_VERSION); ?>  //  <?php $themev = ROOT_DIR ."osta/version"; echo file_get_contents($themev);?><?php echo "\r\n"; ?>PHP <?php echo phpversion(); ?>  //  MySQL <?php echo db_version(); ?>  //  <?php echo $_SERVER['SERVER_SOFTWARE']; ?> web server">
+                                <button id="copy-clipboard-btn" class="btn" data-clipboard-text="PrattleXRM <?php echo sprintf("%s", THIS_VERSION); ?>  //  <?php $themev = ROOT_DIR ."osta/version"; echo file_get_contents($themev);?><?php echo "\r\n"; ?>PHP <?php echo phpversion(); ?>  //  MySQL <?php echo db_version(); ?>  //  <?php echo $_SERVER['SERVER_SOFTWARE']; ?> web server">
                                 <i class="icon-copy-clipboard"></i><?php echo __('Copy to Clipboard'); ?>
                                 </button>
                                 <script src="../osta/js/clipboard.min.js"></script>	
@@ -1271,7 +1271,7 @@ if ( isset( $_SESSION["errors"] ) ) {
                         </tr>
                         <tr>
                             <td>
-                                <a id="osta-settings-support" href="https://osticketawesome.com/forums/"><i class="icon-copy-support"></i><?php echo __('Get Support'); ?></a>
+                                <a id="osta-settings-support" href="https://prattlexrm.prattle.online/forums/"><i class="icon-copy-support"></i><?php echo __('Get Support'); ?></a>
                             </td>
                         </tr>
                     </table>
@@ -1310,16 +1310,16 @@ if ( isset( $_SESSION["errors"] ) ) {
                             <tr>
                                 <td colspan="2">
 <!--
-	YOUR OLD OSTICKET
+	YOUR OLD PrattleXRM
 -->
-                                    <h2><?php echo __('Your Old osTicket'); ?></h2>
+                                    <h2><?php echo __('Your Old PrattleXRM'); ?></h2>
                                 </td>
                             </tr>
                             <tr>
                                 <td colspan="2">
                                     <br>
                                     <?php echo __('If you are having trouble, you should try using
-									old osTicket to see if the problem persists.'); ?><br><br>
+									old PrattleXRM to see if the problem persists.'); ?><br><br>
 									
 									<script>
 									function loadClientPage() {
@@ -1385,7 +1385,7 @@ if ( isset( $_SESSION["errors"] ) ) {
                             <tr>
                                 <td colspan="2">
                                     <br>
-                                    <?php echo __('The following packages have been integrated into osTicket Awesome'); ?>:<br><br>
+                                    <?php echo __('The following packages have been integrated into PrattleXRM'); ?>:<br><br>
                                     <a href="https://github.com/farbelous/bootstrap-colorpicker/">Bootstrap Colorpicker 3</a><span class="forslash">//</span>
                                     <a href="https://codemirror.net/">CodeMirror</a><span class="forslash">//</span>
 									<a href="https://github.com/camsjams/jquery-style-switcher">jQuery Style Switcher</a><span class="forslash">//</span>
@@ -1394,7 +1394,7 @@ if ( isset( $_SESSION["errors"] ) ) {
                             </tr>
                             <tr>
                                 <td colspan="2">
-                                    <div id="thank-you"><?php echo __('Thank you for supporting osTicket Awesome'); ?></div>
+                                    <div id="thank-you"><?php echo __('Thank you for supporting PrattleXRM'); ?></div>
                                 </td>
                             </tr>
                         </tbody>
@@ -1425,7 +1425,7 @@ if ( isset( $_SESSION["errors"] ) ) {
 			</tr>
 			<tr>				
 				<td colspan="2" class="show-php-errors-text">
-					<?php echo __('If you are trying to track down an osTicket issue it may help to turn this on temporarily.'); ?>
+					<?php echo __('If you are trying to track down an PrattleXRM issue it may help to turn this on temporarily.'); ?>
 				</td>
 			</tr>			
 		</tbody>

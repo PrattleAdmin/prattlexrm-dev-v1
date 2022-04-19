@@ -40,5 +40,5 @@ $inc = 'profile.inc.php';
 
 include(CLIENTINC_DIR.'header.inc.php');
 include(CLIENTINC_DIR.$inc);
-include(CLIENTINC_DIR.'footer.inc.php');
+// include(CLIENTINC_DIR.'footer.inc.php');
 

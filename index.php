@@ -193,4 +193,4 @@ require(CLIENTINC_DIR.'header.inc.php');
 		
 <div class="clear"></div>
 
-<?php require(CLIENTINC_DIR.'footer.inc.php'); ?>
+<?php // require(CLIENTINC_DIR.'footer.inc.php'); ?>

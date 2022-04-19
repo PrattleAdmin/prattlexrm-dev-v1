@@ -83,5 +83,5 @@ $nav = new UserNav();
 $nav->setActiveNav('status');
 require CLIENTINC_DIR.'header.inc.php';
 require CLIENTINC_DIR.$inc;
-require CLIENTINC_DIR.'footer.inc.php';
+// require CLIENTINC_DIR.'footer.inc.php';
 ?>

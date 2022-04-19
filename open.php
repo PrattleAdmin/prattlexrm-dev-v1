@@ -93,5 +93,5 @@ if ($ticket
 else {
     require(CLIENTINC_DIR.'open.inc.php');
 }
-require(CLIENTINC_DIR.'footer.inc.php');
+// require(CLIENTINC_DIR.'footer.inc.php');
 ?>
